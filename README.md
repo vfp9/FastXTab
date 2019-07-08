@@ -94,38 +94,38 @@ FastXTab.prg 包含所有的源代码。针对不同的版本，存在两个源�
 ## 属性
 | 属性    | 描述 |
 |-------------|-------------|
-| **Input cursor / table** ||
-| lCloseTable   | .T. the cursor / table which holds the data source is closed |
-| **Output cursor / table** ||
-| lCursorOnly   | .T. The result is stored in a cursor, otherwise in a free table |
-| cOutFile      | Name of the cursor / table which holds the result |
-| lDisplayNulls | .T. / .F. => Set null ON / OFF |
-| lBrowseAfter  | Specifies whether to open a Browse window on the cross tab output |
-| **CrossTab: a. Rows** ||
-| cRowField     | Field name / Field expression for rows (group) |
-| nRowField     | Field position (row number in AFIELDS(,cSource)) for rows (group) |
-| cPageField    | Field name / Field expression for rows supergroup (optional) |
-| nPageField    | Field position (row number in AFIELDS(,cSource)) for rows supergroup |
-| **b. Columns** ||
-| cColField     | Field name / Field expression for columns (group) |
-| nColField     | Field position (row number in AFIELDS(,cSource)) for columns (group) |
-| **c. Each column field holds a single data (cell) column** ||
-| cDataField    | Field name for cells |
-| nDataField    | Field position (row number in AFIELDS(,cSource)) for cells |
-| nFunctionType | Aggregate function used for cells: 1 = Sum, 2 = Count, 3 = Avg, 4 = Min, 5 = Max, 6 = Custom |
-| cFunctionExp  | The expression used for cells when nFunctionType=6 (ignored if nFunctionType<>6) |
-| **d. Some columns contains more than a single data (cell) column** ||
-| nMultiDataField | Number of data (cell) columns (default=1) |
-| acDataField | Array with field names for cells |
-| anDataField | Array with field positions (row number in AFIELDS(,cSource)) for cells |
-| anFunctionType | Array with aggregate functions used for cells: 1 = Sum, 2 = Count, 3 = Avg, 4 = Min, 5 = Max, 6 = Custom |
-| acFunctionExp | Array with the expressions used for cells when anFunctionType()=6 |
-| **e. Miscellaneous** ||
-| nAvePrec | Decimal precision when nFunctionType = 3 (average) |
-| cCondition | Expression for a where condition |
-| cHaving | Expression for a having condition |
-| nRowField2 | When nRowField2 = 0 and !empty(cRowField), FastXTab distribute cells by columns and rows (according to cRowField and cColField). Ignored when nRowField2 <> 0 or empty(This.cRowField) |
-| lTotalRows | When .T. a supplementary row with totals is added |
+| **源表** ||
+| lCloseTable   | .T. 生成交叉表后关闭源表 |
+| **交叉表** ||
+| lCursorOnly   | .T. 表示结果为游标，.F. 表示结果为自由表 |
+| cOutFile      | 交叉表的表名 |
+| lDisplayNulls | .T. / .F. 对应 Set null ON / OFF |
+| lBrowseAfter  | 指定是否在生成交叉表后使用 Brow 命令浏览 |
+| **交叉表 a. 行** ||
+| cRowField     | 行（分组）的字段名称/字段表达式 |
+| nRowField     | 行（分组）的字段位置（AFIELDS(,cSource) 中的行号） |
+| cPageField    | 用于数据分页的字段名/字段表达式（可选） |
+| nPageField    | 数据分页的字段位置（AFIELDS(,cSource) 中的行号） |
+| **b. 列** ||
+| cColField     | 列（分组）的字段名称/字段表达式 |
+| nColField     | 列（分组）的字段位置（AFIELDS(,cSource) 中的行号） |
+| **c. "单元格"** ||
+| cDataField    | 表示单元格数据的字段名 |
+| nDataField    | 单元格数据字段的位置（AFIELDS(,cSource) 中的行号） |
+| nFunctionType | 用于单元格的聚合函数： 1 = Sum, 2 = Count, 3 = Avg, 4 = Min, 5 = Max, 6 = Custom |
+| cFunctionExp  | 当 nFunctionType=6 时所使用的自定义表达式(如果 <> 6 则忽略) |
+| **d. 某些列包含多个数据（单元格）列** ||
+| nMultiDataField | 数据（单元格）列数（默认值= 1） |
+| acDataField | 包含单元格字段名称的数组 |
+| anDataField | 单元格的数据字段位置的数组（AFIELDS(,cSource) 中的行号） |
+| anFunctionType | 用于单元格的聚合函数的数组： 1 = Sum, 2 = Count, 3 = Avg, 4 = Min, 5 = Max, 6 = Custom |
+| acFunctionExp | 当 anFunctionType()=6 时所使用的自定义表达式数组 |
+| **e. 杂项** ||
+| nAvePrec | 当 nFunctionType = 3 (average) 时的小数位 |
+| cCondition | Where 子句表达式 |
+| cHaving | Having 子句表达式 |
+| nRowField2 | 当 nRowField2 = 0 且 !empty（cRowField）时，FastXTab 按列和行分配单元格（根据cRowField和cColField）。 当 nRowField2 <> 0 或empty(This.cRowField) 时被忽略 |
+| lTotalRows | 如果为 .T.，则在交叉表种添加合计行 |
 
 ### 说明
 
