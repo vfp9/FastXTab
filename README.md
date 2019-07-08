@@ -1,18 +1,20 @@
 # FastXTab
 
-This project is an upgrade to the FastXTab class, originally created by Alexander Golovlev, by [Vilhelm-Ion Praisach](https://github.com/vgulielmus). The original class can be downloaded from http://www.universalthread.com/ViewPageNewDownload.aspx?ID=9944.
+翻译：xinjie   2019.07.08
 
-FastXTab is a replacement for VFPXTab which comes with VFP. It expects to find a table or cursor with at least three columns. By default, the data in the first column becomes the rows in the result, the data in the second column becomes the columns in the result, and the data in the third column is aggregated (summed, by default) to form the data in the result. VFPXTab is quite slow and has limited capabilities. FastXTab is much faster and has a lot more functionality.
+该项目是对 FastXTab 类的升级，最初由 Alexander Golovlev 和 [Vilhelm-Ion Praisach](https://github.com/vgulielmus) 创建. 原始版本下载地址： http://www.universalthread.com/ViewPageNewDownload.aspx?ID=9944.
 
-All of the source code is containing in FastXTab.prg. There are two folders containing source code and samples:
+FastXTab 是 VFP 随附的 VFPXTab 的替代品。 它用于至少有三个字段的表或游标。 默认情况下，第一个字段中的数据成为结果中的行，第二个字段中的数据成为结果中的列，第三个字段中的数据被聚合（默认情况下求和）以形成所需的数据处理结果。 VFPXTab 速度很慢且功能有限。 FastXTab 则更快更强大。
 
-* FastXTab 1.6 is for VFP 9
-* FastXTabs6 1.6 is for VFP 6.
+FastXTab.prg 包含所有的源代码。针对不同的版本，存在两个源代码和示例目录：
 
-## New properties
-See the Properties section below for a complete list of properties.
+* FastXTab 1.6 用于 VFP 9
+* FastXTabs6 1.6 用于 VFP 6.
 
-- nAvePrec: precision when using AVE function (DEFAULT=3) The data type is Double precision
+## 新属性
+有关属性的完整列表，请参阅下面的“属性”部分。
+
+- nAvePrec: 使用 AVE 聚合函数(算术平均值)时的精度（本属性所对应的默认值：3），数据类型为双精度型。
 - cPageField: allow specifying the field used for page by using either a column name, either an expression
 - cRowField: allow specifying the field used for rows by using either a column name, either an expression
 - nRowField2: allow distribution by specifiyng cRowField (and cPageField if needed) when nRowField2=0
