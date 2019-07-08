@@ -127,19 +127,19 @@ FastXTab.prg 包含所有的源代码。针对不同的版本，存在两个源�
 | nRowField2 | When nRowField2 = 0 and !empty(cRowField), FastXTab distribute cells by columns and rows (according to cRowField and cColField). Ignored when nRowField2 <> 0 or empty(This.cRowField) |
 | lTotalRows | When .T. a supplementary row with totals is added |
 
-### Notes
+### 说明
 
-There are three type of outputs:
+有三种类型的输出：
 
-1. When nRowField2 = 0 and !empty(cRowField), FastXTab distributes cells by columns and rows (according to cRowField and cColField); no aggregate functions are performed. If nFunctionType / anFunctionType = 6, cells contains the expression from cFunctionExp / acFunctionExp. Otherwise, cells contains the field from cDataField.
+1. 当 nRowField2 = 0 和 !empty(cRowField) 时，FastXTab 按列和行分配单元格（根据 cRowField 和 cColField）; 没有聚合函数被执行。 如果nFunctionType / anFunctionType = 6，则单元格包含来自 cFunctionExp / acFunctionExp 的表达式结果。 否则，单元格包含 cDataField 中的字段。
       
-2. When nRowField = 0 and EMPTY(cRowField), FastXTab distributes cells by columns (according to cColField);  no aggregate functions are performed. If nFunctionType / anFunctionType = 6, cells contains the expression from cFunctionExp / acFunctionExp. Otherwise, cells contains the field from cDataField.
+2. 当 nRowField = 0 和 EMPTY(cRowField) 时，FastXTab 按列分配单元格（根据 cColField）; 没有聚合函数被执行。 如果 nFunctionType / anFunctionType = 6，则单元格包含来自 cFunctionExp / acFunctionExp 的表达式结果。 否则，单元格包含 cDataField 中的字段。
 
-3. Otherwise FastXTab applies aggregate functions and distributes results by columns and rows (according to cPageField, cRowField and cColField).
+3. 其他，FastXTab 应用聚合函数并按列和行分配结果（根据 cPageField，cRowField 和 cColField）。
 
-    * If nFunctionType / anFunctionType = 1, cells contains SUM(cDataField).
-    * If nFunctionType / anFunctionType = 2, cells contains COUNT(cDataField).
-    * If nFunctionType / anFunctionType = 3, cells contains AVERAGE(cDataField).
-    * If nFunctionType / anFunctionType = 4, cells contains MAX(cDataField)
-    * If nFunctionType / anFunctionType = 5, cells contains MIN(cDataField)
-    * If nFunctionType / anFunctionType = 6, cells contains the expression from cFunctionExp / acFunctionExp (must be valid expression from the point of the aggregation)
+    * 如果 nFunctionType / anFunctionType = 1, 单元格包含 SUM(cDataField).
+    * 如果 nFunctionType / anFunctionType = 2, 单元格包含 COUNT(cDataField).
+    * 如果 nFunctionType / anFunctionType = 3, 单元格包含 AVERAGE(cDataField).
+    * 如果 nFunctionType / anFunctionType = 4, 单元格包含 MAX(cDataField)
+    * 如果 nFunctionType / anFunctionType = 5, 单元格包含 MIN(cDataField)
+    * 如果 nFunctionType / anFunctionType = 6, 单元格包含来自 cFunctionExp / acFunctionExp 的表达式结果（必须是聚合点的有效表达式）
