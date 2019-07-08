@@ -27,28 +27,28 @@ FastXTab.prg 包含所有的源代码。针对不同的版本，存在两个源�
 - nMultiDataField: 如果 nMultiDataField > 1，则可以为每列定义更多 DataField / FunctionType / FunctionExp
 - anDataField[1],anFunctionType[1],acFunctionExp[1],acDataField[1]: 当 nMultiDataField > 1 时，nDataField，nFunctionType，cFunctionExp，cDataField的等效属性
 
-### New behavior
-- When EMPTY(cRowField) and nRowField=0 the pivot only distribute the values by columns, according to cDataField, nFunctionType, cFunctionExp and cColField; (values for nFunctionType<> 6 are ignored)
-- permission for aggregation functions on non-numeric fields (1 for Sum and 3 for Avg are ignored, Max is by default)
+### 新的特性
+- 当 EMPTY(cRowField) 和 nRowField = 0 时，根据 cDataField，nFunctionType，cFunctionExp, cColField 属性设置，交叉表仅按列分配值。 （忽略 nFunctionType <> 6 的值）
+- 聚合函数对非数字字段的权限（1表示求和，3表示平均值，默认为max）
 
-Resulting cursor data types:
-1. When EMPTY(cRowField) and nRowField=0 (distribution by columns):
-    - same with the field type when nFunctionType<>6
-    - taken from results when nFunctionType=6
+产生的游标数据类型：
+1. EMPTY(cRowField) 和 nRowField = 0 (按列分配)：
+    - 与 nFunctionType <> 6 时的字段类型相同
+    - 当 nFunctionType = 6 时从结果中获取
 
-2. When !EMPTY(cRowField) or nRowField<>0:
-    - Integer when nFunctionType=2 (COUNT)
-    - Double precision when nFunctionType=3 (AVERAGE); decimal precision given by nAvePrec property
-    - taken from results when nFunctionType=6 or nFunctionType=1 (to avoid data overflow)
-    - same with the field type in rest
+2. !EMPTY(cRowField) 和 nRowField <> 0：
+    - nFunctionType = 2（COUNT） 时为整型
+    - nFunctionType = 3（AVERAGE） 时为双精度型，小数位由 nAvePrec 属性指定
+    - 取自 nFunctionType = 6 或 nFunctionType = 1 时的结果（以避免数据溢出）
+    - 与源表字段类型相同
 
-### Other upgrades
-- improved mdot 
-- added local variables declaration
-- SYS(2015) for internal cursors name
+### 其他的更新
+- 使用 "m." 前缀 
+- 添加了 Local 语句
+- 内部游标名称使用 SYS(2015)
 
-### Some examples:
-In the Test form in the sample Crosstab project, the Foxite1 method shows solutions for a few recent threads on Foxite. Other examples are posted as comment in the Click method of the cmdFastXtab command button.
+### 一些例子：
+在项目示例交叉表的测试表单中，Foxite1 方法显示了 Foxite 上最近几个场景的解决方案。其他示例作为注释发布在 cmdfastxtab 命令按钮的 click 方法中。
 
 1. For http://www.foxite.com/archives/sql-help-0000401315.htm:
 
@@ -91,8 +91,8 @@ In the Test form in the sample Crosstab project, the Foxite1 method shows soluti
     oXtab.cDataField ='no'
 	```
 
-## Properties
-| Property    | Description |
+## 属性
+| 属性    | 描述 |
 |-------------|-------------|
 | **Input cursor / table** ||
 | lCloseTable   | .T. the cursor / table which holds the data source is closed |
