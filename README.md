@@ -14,18 +14,18 @@ FastXTab.prg 包含所有的源代码。针对不同的版本，存在两个源�
 ## 新属性
 有关属性的完整列表，请参阅下面的“属性”部分。
 
-- nAvePrec: 使用 AVE 聚合函数(算术平均值)时的精度（本属性所对应的默认值：3），数据类型为双精度型。
-- cPageField: allow specifying the field used for page by using either a column name, either an expression
-- cRowField: allow specifying the field used for rows by using either a column name, either an expression
-- nRowField2: allow distribution by specifiyng cRowField (and cPageField if needed) when nRowField2=0
-- cColField: allow specifying the field used for columns by using either a column name, either an expression
-- cDataField: allow specifying the field used for cells by using a column name
-- nFunctionType: aggregate function 1 Sum 2 Count 3 Avg 4 Min 5 Max 6 Custom (DEFAULT=1 for numeric fields and DEFAULT=5 for nonnumeric fields)
-- cFunctionExp: expression when nFunctionType=6
-- cCondition: WHERE condition
-- cHaving: HAVING condition
-- nMultiDataField: if nMultiDataField > 1 the for each column can be defined more DataField / FunctionType / FunctionExp
-- anDataField[1],anFunctionType[1],acFunctionExp[1],acDataField[1]: equivalent properties for nDataField, nFunctionType, cFunctionExp, cDataField when nMultiDataField > 1
+- nAvePrec: 使用 AVE 聚合函数(算术平均值)时的精度（本属性所对应的默认值：3），数据类型为双精度型
+- cPageField: 指定用于数据分页的字段名或表达式
+- cRowField: 指定表示行的字段名或表达式
+- nRowField2: 当 nRowField2 = 0 时指定 cRowField 用于数据分类（如果需要，还可以指定 cPageField 属性）
+- cColField: 指定表示列的字段名或表达式
+- cDataField: 指定表示数据的字段名或表达式
+- nFunctionType: 聚合函数 1 Sum 2 Count 3 Avg 4 Min 5 Max 6 自定义 (数值字段的默认值为1，非数值字段的默认值为5)
+- cFunctionExp: 当 nFunctionType=6 时的计算表达式
+- cCondition: WHERE 子句
+- cHaving: HAVING 子句
+- nMultiDataField: 如果 nMultiDataField > 1，则可以为每列定义更多 DataField / FunctionType / FunctionExp
+- anDataField[1],anFunctionType[1],acFunctionExp[1],acDataField[1]: 当 nMultiDataField > 1 时，nDataField，nFunctionType，cFunctionExp，cDataField的等效属性
 
 ### New behavior
 - When EMPTY(cRowField) and nRowField=0 the pivot only distribute the values by columns, according to cDataField, nFunctionType, cFunctionExp and cColField; (values for nFunctionType<> 6 are ignored)
